@@ -1,0 +1,13 @@
+services:
+  msr:
+    image: ${MSR_CONTAINER_IMAGE}
+    hostname: wm-tools-jcode
+    volumes:
+      # Our Code
+      - ../../code/is-packages/MyPackage/:${GUEST_IS_HOME}/packages/MyPackage/
+      - ../../code/is-packages/MyPackageLocalTest/:${GUEST_IS_HOME}/packages/MyPackageLocalTest/
+      # scripts
+      - ./scripts/:/mnt/scripts/
+    environment:
+      - GUEST_IS_HOME
+    entrypoint: /mnt/scripts/entrypoint.sh

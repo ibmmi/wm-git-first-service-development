@@ -1,0 +1,17 @@
+services:
+  msr:
+    image: ${CONTAINER_REGISTRY_URL}/${CONTAINER_IMAGE_REPOSITORY}:${CONTAINER_IMAGE_TAG}
+    ports:
+      - ${HOST_PORT_PREFIX}55:5555
+    hostname: my-svc-dev1
+    volumes:
+      - ${HOST_MSR_LICENSE_FILE}:${GUEST_LICENSE_FILE_MOUNT_POINT}
+      - ./application.properties:${GUEST_APP_PROPS_MOUNT_POINT}
+      # Our Code
+      # Our Code
+      - ../../code/is-packages/MyPackage/:${GUEST_IS_HOME}/packages/MyPackage/
+      - ../../code/is-packages/MyPackageLocalTest/:${GUEST_IS_HOME}/packages/MyPackageLocalTest/
+    environment:
+      - SAG_IS_LICENSE_FILE=${GUEST_LICENSE_FILE_MOUNT_POINT}
+      - SAG_IS_CONFIG_PROPERTIES=${GUEST_APP_PROPS_MOUNT_POINT}
+      - GUEST_IS_HOME

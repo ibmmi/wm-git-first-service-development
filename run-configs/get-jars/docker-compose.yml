@@ -1,0 +1,12 @@
+services:
+  getjars:
+    image: alpine:3
+    volumes:
+      # Our Code
+      - ../../code/:${CODE_MOUNT_POINT}/
+      # scripts
+      - ./scripts/:${SCRIPTS_MOUNT_POINT}
+    environment:
+      - CODE_MOUNT_POINT
+      - SCRIPTS_MOUNT_POINT
+    entrypoint: ${SCRIPTS_MOUNT_POINT}/entrypoint.sh
