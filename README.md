@@ -14,7 +14,7 @@ The scenario foresees a developer having a dedicated workstation, either a PC, l
 1. A git client of choice
 2. Docker compose
 
-    The author is using Rancher Desktop with WSL2 on Windows 11 with kubernetes disabled. This way, the docker system is very responsive
+    The author is using Rancher Desktop with WSL2 on Windows 11 with kubernetes disabled. This way, the docker system is very responsive.
 
 3. WebMethods Designer having the service development perspective
 
